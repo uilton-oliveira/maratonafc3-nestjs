@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MaratonaModule } from './maratona/maratona.module';
 
@@ -8,13 +7,13 @@ import { MaratonaModule } from './maratona/maratona.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'db',
+      database: 'db.sqlite3',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     MaratonaModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
